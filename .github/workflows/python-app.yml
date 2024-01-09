@@ -8,17 +8,6 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    steps:name: Python application
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -36,12 +25,5 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Display Python version
-      run: python -c "import sys; print(sys.version)"
-    - uses: actions/checkout@v2
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.8"
     - name: Display Python version
       run: python -c "import sys; print(sys.version)"
